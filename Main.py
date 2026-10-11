@@ -63,36 +63,40 @@ while sect!=6:
   if sect==1:
     print("num1")
 
-  #Azfar Hariz
+#Azfar Hariz
   elif sect==2:
     water_used = tankcap - watlvl
-    print("An amount of", round(water_used,2), "L has been used")
+    print("An amount of", f"{water_used:.2f}", "L has been used")
 
     days_left = watlvl / dlyconsump
-    remaining_water_percentage = watlvl / tankcap * 100
+    water_percentage = watlvl / tankcap * 100
 
-    if 30 < remaining_water_percentage <= 50:
+    if 30 < water_percentage <= 50:
       print("Current Water level is moderate")
-      print("Water percentage:", str(round(remaining_water_percentage,2)) + "%")
-    elif 10 < remaining_water_percentage <= 30:
+      print("Water percentage:", f"{water_percentage:.2f}" + "%")
+    elif 10 < water_percentage <= 30:
       print("Current Water level is low")
-      print("Water percentage:", str(round(remaining_water_percentage,2)) + "%")
-    elif 0 <= remaining_water_percentage <= 10:
+      print("Water percentage:", f"{water_percentage:.2f}" + "%")
+    elif 0 <= water_percentage <= 10:
       print("WARNING! WARNING! WARNING!")
       print("Current water level is extremely low!")
-      print("Water percentage:", str(round(remaining_water_percentage,2)) + "%")
+      print("Water percentage:", f"{water_percentage:.2f}" + "%")
       print("Actions are recommended.")
     else:
       print("Current Water level is high")
-      print("Water percentage:", str(round(remaining_water_percentage,2)) + "%")
+      print("Water percentage:", f"{water_percentage:.2f}" + "%")
+        
+    print("Days left before water level reaches 0 liters: ", round(days_left), "days.\n")
 
-    print("Days left before water level reaches 0 liters: ", round(days_left,2), "days.\n")
-
-  #Kashif
+#Kashif
   elif sect==3:
     print("num3")
+
+#Someone
   elif sect==4:
     print("num4")
+
+#Someone
   elif sect==5:
     print("num5")
   elif sect==6:
