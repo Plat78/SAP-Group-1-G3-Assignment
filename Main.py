@@ -103,7 +103,40 @@ while sect!=6:
 
 #Someone
   elif sect==4:
-    print("num4")
+    print("=== CONSERVATION MODE ACTIVATED ===")
+    if dlyconsump == 0:
+        print("No consumption recorded. Nothing to conserve.")
+    
+    else:    
+        day_left = watlvl / dlyconsump
+
+    if day_left <= 3:
+      status = "critical"
+      saving_rate = 0.6
+    elif day_left <=7:
+      status = "warning"
+      saving_rate = 0.4
+    elif day_left <=10:
+      status = "moderate"
+      saving_rate = 0.2
+    else:
+      status = "safe"
+      saving_rate = 0
+
+    saving_perc = saving_rate * 100
+    water_save = dlyconsump * saving_rate
+    after_saving = dlyconsump - water_save
+    new_day_left = watlvl / after_saving
+    extra_day = new_day_left - day_left 
+    average = after_saving / res
+    print("Status               :",status)
+    print("Days left (normal)   : ",day_left,days)
+    print(f"Saving target        : {saving_perc:.0f}%")
+    print(f"Water saved          : {water_save:.2f} L/day")
+    print(f"Usage after saving   : {after_saving:.2f} L/day")
+    print(f"Days left (conserve) : {new_day_left:.2f} days")
+    print(f"Extra days gained    : {extra_day:.2f} days")
+    print(f"Usage per resident   : {average:.2f} L/day")
 
 #Someone
   elif sect==5:
