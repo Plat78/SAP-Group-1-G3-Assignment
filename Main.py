@@ -91,6 +91,16 @@ while sect!=6:
 #Kashif
   elif sect==3:
     print("num3")
+    print("To calculate the amount of rainwater collected please enter the required information: ")
+
+    runoff_coeficient = 0.85
+    roof_area = float(input("enter the roof area of your house in sqm: "))
+    rainfall = float(input("enter the amount of rainfall in mm:"))
+
+    collected_rainwater = roof_area * rainfall * runoff_coeficient
+
+    print(f"The amount of rainfall collected in your household is: {collected_rainwater}L ")
+    print(f"Your water level has increased by {collected_rainwater} and is now {watlvl + collected_rainwater}")
 
 #Someone
   elif sect==4:
