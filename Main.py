@@ -90,7 +90,6 @@ while sect!=6:
 
 #Kashif
   elif sect==3:
-    print("num3")
     print("To calculate the amount of rainwater collected please enter the required information: ")
 
     runoff_coeficient = 0.85
