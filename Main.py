@@ -130,7 +130,7 @@ while sect!=6:
     extra_day = new_day_left - day_left 
     average = after_saving / res
     print("Status               :",status)
-    print("Days left (normal)   : ",day_left,days)
+    print("Days left (normal)   : ",day_left,"days")
     print(f"Saving target        : {saving_perc:.0f}%")
     print(f"Water saved          : {water_save:.2f} L/day")
     print(f"Usage after saving   : {after_saving:.2f} L/day")
