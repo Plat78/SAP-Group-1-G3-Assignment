@@ -70,21 +70,28 @@ while sect!=6:
 
     days_left = watlvl / dlyconsump
     water_percentage = watlvl / tankcap * 100
+    def progress_bar(water_percentage):
+        print("0% ||| + ("/" * int(water_percentage // 2)) + (" " * (50 - int(water_percentage // 2))) + "||| 100%\n")
 
+    
     if 30 < water_percentage <= 50:
       print("Current Water level is moderate")
       print("Water percentage:", f"{water_percentage:.2f}" + "%")
+      progress_bar(water_percentage)
     elif 10 < water_percentage <= 30:
       print("Current Water level is low")
       print("Water percentage:", f"{water_percentage:.2f}" + "%")
+      progress_bar(water_percentage)  
     elif 0 <= water_percentage <= 10:
       print("WARNING! WARNING! WARNING!")
       print("Current water level is extremely low!")
       print("Water percentage:", f"{water_percentage:.2f}" + "%")
+      progress_bar(water_percentage)  
       print("Actions are recommended.")
     else:
       print("Current Water level is high")
       print("Water percentage:", f"{water_percentage:.2f}" + "%")
+      progress_bar(water_percentage)
         
     print("Days left before water level reaches 0 liters: ", round(days_left), "days.\n")
 
