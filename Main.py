@@ -71,7 +71,7 @@ while sect!=6:
     days_left = watlvl / dlyconsump
     water_percentage = watlvl / tankcap * 100
     def progress_bar(water_percentage):
-        print("0% ||| + ("/" * int(water_percentage // 2)) + (" " * (50 - int(water_percentage // 2))) + "||| 100%\n")
+        print("0% |||" + ("/" * int(water_percentage // 2)) + (" " * (50 - int(water_percentage // 2))) + "||| 100%\n")
 
     
     if 30 < water_percentage <= 50:
