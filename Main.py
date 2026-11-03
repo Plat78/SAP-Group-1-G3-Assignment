@@ -106,7 +106,12 @@ while sect!=6:
     collected_rainwater = roof_area * rainfall * runoff_coeficient
 
     print(f"The amount of rainfall collected in your household is: {collected_rainwater}L ")
-    print(f"Your water level has increased by {collected_rainwater} and is now {watlvl + collected_rainwater}")
+    if collected_rainwater + watlvl > tankcap:
+        print("ALERT! ALERT! TOO MUCH WATER COLLECTED! YOUR TANK IS OVERFLOWING! ")
+    elif collected_rainwater + watlvl > (tankcap * 0.9):
+        print(f"Watch out! Your tank has reached {watlvl + collected_rainwater} L. Make sure you tank doesnt overflow.")
+    else:
+        print(f"Your water level has increased by {collected_rainwater} L and is now {watlvl + collected_rainwater} L")
 
 #Someone
   elif sect==4:
