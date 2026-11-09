@@ -46,7 +46,7 @@ while sect!=6:
     print("[2] Analyse water consumption")
     print("[3] Check rainwater collection")
     print("[4] Activate conservation mode")
-    print("[5] Future water simulation")
+    print("[5] Environmental risk simulation")
     print("[6] Exit")
     sect=int(input("\nEnter the desired numbered Section : "))
     print("\n====================================================================")
@@ -186,10 +186,68 @@ while sect!=6:
 
     #Someone
     elif sect==5:
-        print("num5")
+        print("\n                  ENVIRONMENTAL RISK SIMULATION")
+        print("\n--------------------------------------------------------------------\n")
+        sim=["Prolonged Drought","Tank Leakage","Flood Contamination"]
+        
+        for i in range(3):
+           print(f"[{i+1}] {sim[i]}")
+           contaminated=0
+           daily_demand = res * dlyconsump
+           water_level=[]
+        while True:
+           try:
+              sim=int(input("\nChoose desired simulation : "))
+              if sim==1:
+                 days=int(input("\nEnter simulation duration (Days) : "))
+                 surf_area=float(input("Enter your tank's surface area (m²) : "))
+                 evap_rate=float(input("Enter the average evaporation rate (mm): "))
+                 dly_loss=daily_demand+(surf_area*evap_rate)
+                 starting_water=watlvl
+                 break
+              elif sim==2:
+                 days=int(input("\nEnter simulation duration (Days) : "))
+                 leak=float(input("Enter daily leakage (L) : "))
+                 dly_loss=daily_demand+leak
+                 starting_water=watlvl
+                 break
+              elif sim==3:
+                 days=int(input("\nEnter simulation duration (Days) : "))
+                 contaminated=float(input("Enter contaminated water (L) : "))
+                 dly_loss=daily_demand
+                 starting_water=watlvl-contaminated
+                 if not 0>contaminated or contaminated>watlvl:
+                    break
+                 else:
+                    print("\nInvalid input.")
+                    print("Check back the entered data.\n")                    
+              else:
+                 print("\nInvalid input.")
+                 print("Try again.\n")
+           except ValueError:
+              print("\nEnter a valid number.\n")
+           except ZeroDivisionError:
+              print("\nInvalid input.")
+              print("Check back the entered data.\n")
+        water_level.append(starting_water)
+        for i in range(days):
+           starting_water-=dly_loss"
+           if starting_water<0:
+              water_level.append(0)
+           else:
+              water_level.append(starting_water)
+        print("\n------------------------------------------------")
+        print("|- - Relative Day - - | - - Water Level (L) - -|")
+        print("|---------------------|------------------------|")
+        for day in range(0,days+1):
+           print(f"|{day:^21}|{water_level[day]:^24.1f}|")
+        print("------------------------------------------------")
+        print(f"\nUsable water after simulation : {water_level[day]:.1f}")
+        print(f"Days left after simulation    : {water_level[day]/daily_demand}")
+        if water_level[day]<0:
+           print("\nPlease take precautions.")
     elif sect==6:
-        print("\nTerminating program.")
+        print("\nTerminating program.\n)
     else:
         print("\nInvalid input.")
-        print("Try again.")
-        print("")
+        print("Try again.\n")
