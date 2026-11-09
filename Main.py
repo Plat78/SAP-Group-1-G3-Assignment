@@ -182,6 +182,7 @@ while sect != 6:
         roof_area = float(input("Enter the roof area of your house (sqm) : "))
         rain = float(input("Enter the amount of rainfall (mm) : "))
         rain_col = roof_area * rain * runoff_coef
+        watlvl += rain_col
 
         print(f"\nThe amount of rainfall collected in your household is: {rain_col:.2f}L ")
         if rain_col + watlvl > tankcap:
