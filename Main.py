@@ -191,6 +191,8 @@ while sect != 6:
         else:
             print(f"\nYour water level has increased by {rain_col:.2f} L and is now {watlvl + rain_col:.2f} L")
 
+        watlvl += rain_col
+
     # Asyraf
     elif sect == 4:
         print("\n                        CONSERVATION MODE ")
