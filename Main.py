@@ -102,6 +102,8 @@ while sect!=6:
         print("\nAll parameters successfully updated and verified!")
     #Azfar Hariz
     elif sect==2:
+        print("\n                    WATER CONSUMPTION ANALYSIS")
+        print("\n--------------------------------------------------------------------")
         water_used = tankcap - watlvl
         print("\nAn amount of", f"{water_used:.2f}", "L has been used")
 
@@ -134,25 +136,29 @@ while sect!=6:
 
     #Kashif
     elif sect==3:
-        print("\nTo calculate the amount of rainwater collected please enter the required information: ")
+        print("\n                       RAINWATER COLLECTION")
+        print("\n--------------------------------------------------------------------")
+        print("\nTo calculate the amount of rainwater collected please enter the required information: \n")
 
         runoff_coeficient = 0.85
-        roof_area = float(input("Enter the roof area of your house in sqm : "))
-        rainfall = float(input("enter the amount of rainfall in mm:"))
+        roof_area = float(input("Enter the roof area of your house (sqm) : "))
+        rainfall = float(input("Enter the amount of rainfall (mm) : "))
         collected_rainwater = roof_area * rainfall * runoff_coeficient
 
-        print(f"The amount of rainfall collected in your household is: {collected_rainwater}L ")
+        print(f"\nThe amount of rainfall collected in your household is: {collected_rainwater}L ")
         if collected_rainwater + watlvl > tankcap:
-          print("ALERT! ALERT! TOO MUCH WATER COLLECTED! YOUR TANK IS OVERFLOWING! ")
+          print("\nALERT! ALERT! TOO MUCH WATER COLLECTED! YOUR TANK IS OVERFLOWING! ")
         elif collected_rainwater + watlvl > (tankcap * 0.9):
-          print(f"Watch out! Your tank has reached {watlvl + collected_rainwater} L. Make sure you tank doesnt overflow.")
+          print(f"\nWatch out! Your tank has reached {watlvl + collected_rainwater} L. Make sure you tank doesnt overflow.")
         else:
-          print(f"Your water level has increased by {collected_rainwater} L and is now {watlvl + collected_rainwater} L")
+          print(f"\nYour water level has increased by {collected_rainwater} L and is now {watlvl + collected_rainwater} L")
     #Asyraf
     elif sect==4:
-        print("=== CONSERVATION MODE ACTIVATED ===")
+        print("\n                 CONSERVATION MODE ACTIVATED")
+        print("\n--------------------------------------------------------------------")
+
         if dlyconsump == 0:
-            print("No consumption recorded. Nothing to conserve.")
+            print("\nNo consumption recorded. Nothing to conserve.")
         else:
             day_left = watlvl / dlyconsump
         if day_left <= 3:
@@ -175,16 +181,16 @@ while sect!=6:
         extra_day = new_day_left - day_left
         average = after_saving / res
 
-        print("Status               :",status)
+        print("\nStatus               :",status)
         print("Days left (normal)   :",day_left,"days")
-        print(f"Saving target        : {saving_perc:.0f}%")
+        print(f"\nSaving target        : {saving_perc:.0f}%")
         print(f"Water saved          : {water_save:.2f} L/day")
         print(f"Usage after saving   : {after_saving:.2f} L/day")
         print(f"Days left (conserve) : {new_day_left:.2f} days")
         print(f"Extra days gained    : {extra_day:.2f} days")
         print(f"Usage per resident   : {average:.2f} L/day")
 
-    #Someone
+    #Hafizi
     elif sect==5:
         print("\n                  ENVIRONMENTAL RISK SIMULATION")
         print("\n--------------------------------------------------------------------\n")
@@ -231,7 +237,7 @@ while sect!=6:
               print("Check back the entered data.\n")
         water_level.append(starting_water)
         for i in range(days):
-           starting_water-=dly_loss"
+           starting_water-=dly_loss
            if starting_water<0:
               water_level.append(0)
            else:
@@ -247,7 +253,7 @@ while sect!=6:
         if water_level[day]<0:
            print("\nPlease take precautions.")
     elif sect==6:
-        print("\nTerminating program.\n)
+        print("\nTerminating program.\n")
     else:
         print("\nInvalid input.")
         print("Try again.\n")
