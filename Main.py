@@ -120,7 +120,7 @@ while sect != 6:
         # Validate daily consumption
         while True:
             try:
-                dly = float(input("Enter the new average daily consumption per person (L): "))
+                dly = float(input("Enter the new average daily consumption per day (L): "))
                 if dly >= 0:
                     break
                 print("Error: Consumption cannot be negative. Try again.")
